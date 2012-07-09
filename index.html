@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Mediaplayert</title>
+	
+	<style>
+		#mediaplayer {
+			width: 640px;
+			height: 360px;
+		}
+	</style>
+	
+</head>
+<body>
+
+<div class="mediaplayer-wrapper">
+	<video controls="controls" id="mediaplayer" poster="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg" data-options='{}'>
+		<source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4" />
+		<source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.ogv" type="video/ogg" />
+	</video>
+	<noscript>
+		<object type="application/x-shockwave-flash" data="http://player.longtailvideo.com/player.swf" width="640" height="360">
+			<param name="movie" value="http://player.longtailvideo.com/player.swf" />
+			<param name="flashVars" value="controlbar=over&amp;image=http%3A%2F%2Fsandbox.thewikies.com%2Fvfe-generator%2Fimages%2Fbig-buck-bunny_poster.jpg&amp;file=http%3A%2F%2Fclips.vorwaerts-gmbh.de%2Fbig_buck_bunny.mp4" />
+			<img alt="Big Buck Bunny" src="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg" width="640" height="360" title="No video playback capabilities, please download the video below" />
+		</object>
+	</noscript>
+	<div class="mediaplayer-controls">
+		<button data-action="TogglePlay">play / pause</button>
+		<button data-action="ToggleMute">mute / unmute</button>
+		<span data-show="TotalTime">00:00:00</span>
+		<span data-show="CurrentTime">00:00:00</span>
+		<span data-show="CurrentVolume">0%</span>
+	</div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="/static/js/External/jwplayer.js"></script>
+<script src="/static/js/Mediaplayer.js"></script>
+<script src="/static/js/Mediaplayer.Controlbar.js"></script>
+<script src="/static/js/Mediaplayer.Player.js"></script>
+<script src="/static/js/Mediaplayer.TogglePlay.js"></script>
+<script src="/static/js/Mediaplayer.ToggleMute.js"></script>
+<script src="/static/js/Mediaplayer.TotalTime.js"></script>
+
+<script>
+	$(function()
+	{
+		var mediaplayerInstance = new Mediaplayer($('#mediaplayer'));
+	});
+</script>
+
+</body>
+</html>
