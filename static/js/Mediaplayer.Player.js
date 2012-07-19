@@ -43,11 +43,11 @@
 			playerOpts.events = 
 			{
 				onReady: function() { element.trigger('Mediaplayer.ready'); },
-				onError: function(message) { element.trigger({type: 'Mediaplayer.error', message: message}); },
-				onMute: function(mute) { element.trigger({type: 'Mediaplayer.mute', mute: mute}); },
-				onPlay: function(oldstate) { element.trigger({type: 'Mediaplayer.play', oldstate: oldstate}) },
-				onPause: function(oldstate) { element.trigger({type: 'Mediaplayer.play', oldstate: oldstate}) },
-				onBuffer: function(oldstate) { element.trigger({type: 'Mediaplayer.buffer', oldstate: oldstate}) },
+				onError: function(data) { element.trigger({type: 'Mediaplayer.error', message: data.message}); },
+				onMute: function(data) { element.trigger({type: 'Mediaplayer.mute', mute: data.mute}); },
+				onPlay: function(data) { element.trigger({type: 'Mediaplayer.play', oldstate: data.oldstate}) },
+				onPause: function(data) { element.trigger({type: 'Mediaplayer.pause', oldstate: data.oldstate}) },
+				onBuffer: function(data) { element.trigger({type: 'Mediaplayer.buffer', oldstate: data.oldstate}) },
 				onSeek: function(position, offset){ element.trigger({type: 'Mediaplayer.seek', position: position, offset: offset }) },
 				onIdle: function(oldstate) { element.trigger({type: 'Mediaplayer.idle', oldstate: oldstate}) },
 				onComplete: function(){ element.trigger('Mediaplayer.complete'); },
@@ -63,13 +63,19 @@
 
 		assignListeners = function()
 		{
-			element.on('Mediaplayer.TogglePlay', togglePlay);
-			element.on('Mediaplayer.ToggleMute', toggleMute);
+			element.on('Mediaplayer.togglePlay', togglePlay);
+			element.on('Mediaplayer.toggleMute', toggleMute);
+			element.on('Mediaplayer.seek', seek);
 		},
 
 		togglePlay = function()
 		{
 			jwplayer(player).play();
+		},
+
+		seek = function(e)
+		{
+			jwplayer(player).seek(e.seconds);
 		},
 
 		toggleMute = function()
@@ -85,13 +91,25 @@
 		getVolume = function()
 		{
 			return jwplayer(player).getVolume();
+		},
+		
+		getMute = function()
+		{
+			return jwplayer(player).getMute();			
+		},
+		
+		getState = function()
+		{
+			return jwplayer(player).getState();
 		};
 
 		init();
 
 		return {
 			getDuration: getDuration,
-			getVolume: getVolume
+			getVolume: getVolume,
+			getMute: getMute,
+			getState: getState
 		}
 	};
 

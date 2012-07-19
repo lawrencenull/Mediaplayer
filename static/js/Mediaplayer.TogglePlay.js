@@ -10,17 +10,38 @@
 {
 	Mediaplayer.TogglePlay = function(actionElement, videoElement, options)
 	{
-		var playerId = videoElement.attr('id'),
+		var playerInstance = Mediaplayer.getInstance(videoElement, 'Mediaplayer.Player'),
 
 		init = function() 
 		{
 			actionElement.on('click', onClick);
+			videoElement.on('Mediaplayer.play', setPlaying);
+			videoElement.on('Mediaplayer.pause', setPaused);
 		},
 
 		onClick = function(e)
 		{
 			e.preventDefault();
-			videoElement.trigger('Mediaplayer.TogglePlay');
+			videoElement.trigger('Mediaplayer.togglePlay');
+			
+			if(playerInstance.getState() === 'PLAYING')
+			{
+				setPlaying();			
+			}
+			else
+			{
+				setPaused();
+			}
+		},
+		
+		setPlaying = function()
+		{
+			actionElement.addClass('playing').removeClass('paused');				
+		},
+		
+		setPaused = function()
+		{
+			actionElement.addClass('paused').removeClass('playing');
 		};
 
 		init();
