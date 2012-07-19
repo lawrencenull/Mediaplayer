@@ -10,7 +10,7 @@
 {
 	Mediaplayer.Controlbar = function(element, options)
 	{
-		var playerWrapper   = options.playerWrapper,
+		var playerWrapper	  = options.playerWrapper,
 			controlbarArea  = playerWrapper.find('.mediaplayer-controls'),
 			dataActions 	= controlbarArea.find('[data-action]'),
 			dataShows 		= controlbarArea.find('[data-show]'),

@@ -16,12 +16,12 @@
 			
 			/*
 			actionElement.on('slide', function(e)
-		    {
-		        videoElement.trigger({type: 'Mediaplayer.seek', seconds: e.position * 100});
-		    });
-		    */
+			  {
+				  videoElement.trigger({type: 'Mediaplayer.seek', seconds: e.position * 100});
+			  });
+			  */
 
-		    videoElement.on('Mediaplayer.time', function(e)
+			  videoElement.on('Mediaplayer.time', function(e)
 			{	
 				actionElement.trigger({ type: 'slideTo', position: (e.position / e.duration) });
 			});
