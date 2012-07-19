@@ -15,6 +15,11 @@
 		init = function()
 		{
 			actionElement.text(playerInstance.getVolume() + '%');
+			
+			videoElement.on('Mediaplayer.volume', function(e)
+			{
+				actionElement.text(e.volume + '%');
+			});
 		};
 
 		init();

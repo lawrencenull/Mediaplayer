@@ -52,7 +52,7 @@
 				onIdle: function(oldstate) { element.trigger({type: 'Mediaplayer.idle', oldstate: oldstate}) },
 				onComplete: function(){ element.trigger('Mediaplayer.complete'); },
 				onTime: function(data) { element.trigger({type: 'Mediaplayer.time', duration: data.duration, position: data.position}); },
-				onVolume: function(oldstate) { element.trigger({type: 'Mediaplayer.volume', volume: volume}) },
+				onVolume: function(data) { element.trigger({type: 'Mediaplayer.volume', volume: data.volume}) }
 			}
 		},
 		
