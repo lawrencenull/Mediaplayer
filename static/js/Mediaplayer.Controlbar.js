@@ -29,7 +29,7 @@
 
 				if(typeof Mediaplayer[action] === 'function')
 				{
-					$.data(element[0], 'mediaplayer.' + action, new Mediaplayer[action]($(this), element, options));
+					$.data(element[0], 'Mediaplayer.' + action, new Mediaplayer[action]($(this), element, options));
 				}				
 			});
 		};

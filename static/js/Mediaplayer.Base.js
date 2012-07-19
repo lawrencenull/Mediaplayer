@@ -22,11 +22,11 @@
 		{
 			options.playerWrapper = element.parent();
 			
-			$.data(element[0], 'mediaplayer.player', new Mediaplayer.Player(element, options));
+			$.data(element[0], 'Mediaplayer.Player', new Mediaplayer.Player(element, options));
 
 			element.on('Mediaplayer.ready', function()
 			{
-				$.data(element[0], 'mediaplayer.controlbar', new Mediaplayer.Controlbar(element, options));
+				$.data(element[0], 'Mediaplayer.Controlbar', new Mediaplayer.Controlbar(element, options));
 			});
 		};
 

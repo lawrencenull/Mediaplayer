@@ -1,6 +1,6 @@
 /* 
-*	@Class:			Mediaplayer.CurrentTime
-*	@Description:	Shows CurrentTime
+*	@Class:			Mediaplayer.CurrentVolume
+*	@Description:	
 *	@Author:		Tim Benniks <tim.benniks@akqa.com>
 *	@Dependencies:	jQuery, Mediaplayer, Mediaplayer.Controlbar
 ---------------------------------------------------------------------------- */
@@ -8,14 +8,13 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.CurrentTime = function(actionElement, videoElement, options)
+	Mediaplayer.CurrentVolume = function(actionElement, videoElement, options)
 	{
-		var init = function()
+		var playerInstance = Mediaplayer.getInstance(videoElement, 'Mediaplayer.Player'),
+
+		init = function()
 		{
-			videoElement.on('Mediaplayer.time', function(e)
-			{
-				actionElement.text(Mediaplayer.formatTime(e.position));
-			});
+			actionElement.text(playerInstance.getVolume() + '%');
 		};
 
 		init();

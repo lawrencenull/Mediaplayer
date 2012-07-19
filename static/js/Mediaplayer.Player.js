@@ -80,9 +80,19 @@
 		getDuration = function()
 		{
 			return jwplayer(player).getDuration();
+		},
+
+		getVolume = function()
+		{
+			return jwplayer(player).getVolume();
 		};
 
 		init();
+
+		return {
+			getDuration: getDuration,
+			getVolume: getVolume
+		}
 	};
 
 })(jQuery, window.Mediaplayer = window.Mediaplayer || {});

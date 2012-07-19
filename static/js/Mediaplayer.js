@@ -1,6 +1,6 @@
 /* 
-*	@Class:			Mediaplayer.Base
-*	@Description:	This file initializes the Mediaplayer and the controlbar.
+*	@Class:			Mediaplayer
+*	@Description:	Holds static functions
 *	@Author:		Tim Benniks <tim.benniks@akqa.com>
 *	@Dependencies:	jQuery
 ---------------------------------------------------------------------------- */
