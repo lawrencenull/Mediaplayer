@@ -42,10 +42,17 @@
 
 			playerOpts.events = 
 			{
-				onReady: function()
-				{
-					element.trigger('Mediaplayer.ready');
-				}
+				onReady: function() { element.trigger('Mediaplayer.ready'); },
+				onError: function(message) { element.trigger({type: 'Mediaplayer.error', message: message}); },
+				onMute: function(mute) { element.trigger({type: 'Mediaplayer.mute', mute: mute}); },
+				onPlay: function(oldstate) { element.trigger({type: 'Mediaplayer.play', oldstate: oldstate}) },
+				onPause: function(oldstate) { element.trigger({type: 'Mediaplayer.play', oldstate: oldstate}) },
+				onBuffer: function(oldstate) { element.trigger({type: 'Mediaplayer.buffer', oldstate: oldstate}) },
+				onSeek: function(position, offset){ element.trigger({type: 'Mediaplayer.seek', position: position, offset: offset }) },
+				onIdle: function(oldstate) { element.trigger({type: 'Mediaplayer.idle', oldstate: oldstate}) },
+				onComplete: function(){ element.trigger('Mediaplayer.complete'); },
+				onTime: function(data) { element.trigger({type: 'Mediaplayer.time', duration: data.duration, position: data.position}); },
+				onVolume: function(oldstate) { element.trigger({type: 'Mediaplayer.volume', volume: volume}) },
 			}
 		},
 		
@@ -76,10 +83,6 @@
 		};
 
 		init();
-
-		return {
-			getDuration: getDuration
-		}
 	};
 
 })(jQuery, window.Mediaplayer = window.Mediaplayer || {});

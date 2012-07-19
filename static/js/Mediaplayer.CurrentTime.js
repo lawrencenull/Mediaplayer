@@ -8,17 +8,14 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.ToggleMute = function(actionElement, videoElement, options)
+	Mediaplayer.CurrentTime = function(actionElement, videoElement, options)
 	{
 		var init = function()
 		{
-			actionElement.on('click', onClick);
-		},
-
-		onClick = function(e)
-		{
-			e.preventDefault();
-			videoElement.trigger('Mediaplayer.ToggleMute');
+			videoElement.on('Mediaplayer.time', function(e)
+			{
+				actionElement.text(Mediaplayer.formatTime(e.position));
+			});
 		};
 
 		init();

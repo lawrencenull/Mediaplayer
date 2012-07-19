@@ -8,7 +8,7 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.Controlbar = function(element, options, playerInstance)
+	Mediaplayer.Controlbar = function(element, options)
 	{
 		var playerWrapper   = options.playerWrapper,
 			controlbarArea  = playerWrapper.find('.mediaplayer-controls'),
@@ -29,7 +29,7 @@
 
 				if(typeof Mediaplayer[action] === 'function')
 				{
-					return new Mediaplayer[action]($(this), element, options, playerInstance);
+					$.data(element[0], 'mediaplayer.' + action, new Mediaplayer[action]($(this), element, options));
 				}				
 			});
 		};

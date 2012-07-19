@@ -8,13 +8,20 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.TotalTime = function(actionElement, videoElement, options, playerInstance)
+	Mediaplayer.TotalTime = function(actionElement, videoElement, options)
 	{
-		var playerId = videoElement.attr('id'),
+		var duration,
 
 		init = function()
 		{
-			console.log(playerInstance.getDuration());
+			videoElement.on('Mediaplayer.time', function(e)
+			{
+				if(!duration)
+				{
+					duration = e.duration;
+					actionElement.text(Mediaplayer.formatTime(duration));
+				}
+			});
 		};
 
 		init();

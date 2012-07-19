@@ -38,16 +38,18 @@
 <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script src="/static/js/External/jwplayer.js"></script>
 <script src="/static/js/Mediaplayer.js"></script>
+<script src="/static/js/Mediaplayer.Base.js"></script>
 <script src="/static/js/Mediaplayer.Controlbar.js"></script>
 <script src="/static/js/Mediaplayer.Player.js"></script>
 <script src="/static/js/Mediaplayer.TogglePlay.js"></script>
 <script src="/static/js/Mediaplayer.ToggleMute.js"></script>
 <script src="/static/js/Mediaplayer.TotalTime.js"></script>
+<script src="/static/js/Mediaplayer.CurrentTime.js"></script>
 
 <script>
 	$(function()
 	{
-		var mediaplayerInstance = new Mediaplayer($('#mediaplayer'));
+		var mediaplayerInstance = new Mediaplayer.Base($('#mediaplayer'));
 	});
 </script>
 

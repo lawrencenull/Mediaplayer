@@ -8,7 +8,7 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.TogglePlay = function(actionElement, videoElement, options, playerInstance)
+	Mediaplayer.TogglePlay = function(actionElement, videoElement, options)
 	{
 		var playerId = videoElement.attr('id'),
 

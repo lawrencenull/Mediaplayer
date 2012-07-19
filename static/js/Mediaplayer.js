@@ -6,32 +6,25 @@
 ---------------------------------------------------------------------------- */
 
 
-(function($)
+(function($, Mediaplayer)
 {
-	Mediaplayer = function(element, options)
+	$.extend(Mediaplayer,
 	{
-		var defaults = 
-			{
-				controlbar: {'position': 'none'},
-				flashplayer: '/static/flash/player.swf' 
-			},
-			
-			options = $.extend(true, defaults, options),
-			playerInstance, controlbarInstance,
-		
-		init = function() 
+		getInstance: function(element, instance)
 		{
-			options.playerWrapper = element.parent();
+			return element.data(instance);
+		},
 
-			playerInstance = new Mediaplayer.Player(element, options);
-			
-			element.on('Mediaplayer.ready', function()
-			{
-				controlbarInstance = new Mediaplayer.Controlbar(element, options, playerInstance);	
-			});
-		};
+		formatTime: function(seconds)
+		{
+			var start = new Date(1970, 1, 1, 0, 0, 0, 0).getTime(),
+    			end = new Date(1970, 1, 1, 0, 0, seconds, 0).getTime(),
+    			duration = new Date(end - start);
+    		
+    		duration.setMinutes(duration.getMinutes() + duration.getTimezoneOffset());
+    		
+    		return duration.toString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+		}
+	});
 
-		init();
-	};
-
-})(jQuery);
+})(jQuery, window.Mediaplayer = window.Mediaplayer || {});
