@@ -21,7 +21,6 @@
 
 		onClick = function(e)
 		{
-			e.preventDefault();
 			videoElement.trigger('Mediaplayer.togglePlay');
 			
 			if(playerInstance.getState() === 'PLAYING')

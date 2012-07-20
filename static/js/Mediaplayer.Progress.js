@@ -14,17 +14,30 @@
 		{
 			actionElement.slider();
 			
-			/*
-			actionElement.on('slide', function(e)
-			  {
-				  videoElement.trigger({type: 'Mediaplayer.seek', seconds: e.position * 100});
-			  });
-			  */
+			bindPlayerTimeListener();
 
-			  videoElement.on('Mediaplayer.time', function(e)
-			{	
-				actionElement.trigger({ type: 'slideTo', position: (e.position / e.duration) });
+			actionElement.on('slideStart', function()
+			{
+				unbindPlayerSlideListener();
 			});
+
+			actionElement.on('slideEnd', function(e)
+			{
+				videoElement.trigger({type: 'Mediaplayer.seek', seconds: e.position * 100});
+			});
+		},
+
+		bindPlayerTimeListener = function()
+		{
+			videoElement.on('Mediaplayer.time', function(e)
+			{	
+			 	actionElement.trigger({ type: 'slideTo', position: (e.position / e.duration) });
+			});
+		},
+
+		unbindPlayerSlideListener = function()
+		{
+			videoElement.off('Mediaplayer.time');
 		};
 
 		init();

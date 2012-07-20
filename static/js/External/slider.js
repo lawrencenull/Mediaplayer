@@ -56,6 +56,8 @@ Slider.prototype =
 			
 			this.positionInt(pos.x - grabX);
 			
+			this.container.trigger({ type: 'slideStart', position: this.lerp(0, 0, this.maxHeadX, 1, (this.getPos(this.head[0]).x - this.getPos(this.base[0]).x)) }); 
+
 			this.doc.on(
 			{
 				'mousemove': $.proxy(function(e)
@@ -69,7 +71,9 @@ Slider.prototype =
 				'mouseup': $.proxy(function() 
 				{ 
 					this.doc.off('mousemove mouseup'); 
-				
+					
+					this.container.trigger({ type: 'slideEnd', position: this.lerp(0, 0, this.maxHeadX, 1, (this.getPos(this.head[0]).x - this.getPos(this.base[0]).x)) }); 
+
 				}, this)
 			});
 			
