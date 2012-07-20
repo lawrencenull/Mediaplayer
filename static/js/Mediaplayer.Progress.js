@@ -10,7 +10,10 @@
 {
 	Mediaplayer.Progress = function(actionElement, videoElement, options)
 	{
-		var init = function()
+		var playerInstance = Mediaplayer.getInstance(videoElement, 'Mediaplayer.Player'),
+			duration,
+		
+		init = function()
 		{
 			actionElement.slider();
 			
@@ -23,7 +26,12 @@
 
 			actionElement.on('slideEnd', function(e)
 			{
-				videoElement.trigger({type: 'Mediaplayer.seek', seconds: e.position * 100});
+				bindPlayerTimeListener();
+			});
+
+			actionElement.on('slide', function(e)
+			{
+				playerInstance.seek(duration * e.position);
 			});
 		},
 
@@ -31,7 +39,15 @@
 		{
 			videoElement.on('Mediaplayer.time', function(e)
 			{	
-			 	actionElement.trigger({ type: 'slideTo', position: (e.position / e.duration) });
+				actionElement.off('slide');
+
+			 	duration = e.duration;
+			 	actionElement.trigger({ type: 'slideTo', position: (e.position / duration) });
+
+			 	actionElement.on('slide', function(e)
+				{
+					playerInstance.seek(duration * e.position);
+				});
 			});
 		},
 

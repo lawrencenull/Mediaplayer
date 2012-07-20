@@ -65,7 +65,6 @@
 		{
 			element.on('Mediaplayer.togglePlay', togglePlay);
 			element.on('Mediaplayer.toggleMute', toggleMute);
-			element.on('Mediaplayer.seek', seek);
 		},
 
 		togglePlay = function()
@@ -73,9 +72,9 @@
 			jwplayer(player).play();
 		},
 
-		seek = function(e)
+		seek = function(seconds)
 		{
-			jwplayer(player).seek(e.seconds);
+			jwplayer(player).seek(seconds);
 		},
 
 		toggleMute = function()
@@ -109,7 +108,8 @@
 			getDuration: getDuration,
 			getVolume: getVolume,
 			getMute: getMute,
-			getState: getState
+			getState: getState,
+			seek: seek
 		}
 	};
 
