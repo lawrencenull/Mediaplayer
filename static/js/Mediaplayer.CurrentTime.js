@@ -8,7 +8,7 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.CurrentTime = function(actionElement, videoElement, options)
+	Mediaplayer.CurrentTime = function(actionElement, videoElement, options, playerInstance)
 	{
 		var init = function()
 		{

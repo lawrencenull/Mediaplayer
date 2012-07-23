@@ -8,14 +8,13 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.Progress = function(actionElement, videoElement, options)
+	Mediaplayer.Progress = function(actionElement, videoElement, options, playerInstance)
 	{
-		var playerInstance = Mediaplayer.getInstance(videoElement, 'Mediaplayer.Player'),
-			duration,
+		var duration,
 		
 		init = function()
 		{
-			actionElement.slider();
+			actionElement.fancySlider();
 			
 			bindPlayerTimeListener();
 

@@ -8,18 +8,16 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.ToggleMute = function(actionElement, videoElement, options)
+	Mediaplayer.ToggleMute = function(actionElement, videoElement, options, playerInstance)
 	{
-		var playerInstance = Mediaplayer.getInstance(videoElement, 'Mediaplayer.Player'),
-
-		init = function()
+		var init = function()
 		{
 			actionElement.on('click', onClick);
 		},
 
 		onClick = function(e)
 		{
-			videoElement.trigger('Mediaplayer.toggleMute');
+			playerInstance.toggleMute();
 			
 			if(playerInstance.getMute())
 			{

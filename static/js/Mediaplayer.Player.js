@@ -17,7 +17,6 @@
 		{
 			createPlayerOptions();
 			setUpPlayer();
-			assignListeners();
 		},
 		
 		createPlayerOptions = function()
@@ -61,12 +60,6 @@
 			jwplayer(element[0]).setup(playerOpts);
 		},
 
-		assignListeners = function()
-		{
-			element.on('Mediaplayer.togglePlay', togglePlay);
-			element.on('Mediaplayer.toggleMute', toggleMute);
-		},
-
 		togglePlay = function()
 		{
 			jwplayer(player).play();
@@ -91,6 +84,11 @@
 		{
 			return jwplayer(player).getVolume();
 		},
+
+		setVolume = function(volume)
+		{
+			jwplayer(player).setVolume(volume);
+		},
 		
 		getMute = function()
 		{
@@ -106,10 +104,13 @@
 
 		return {
 			getDuration: getDuration,
+			toggleMute: toggleMute,
+			togglePlay: togglePlay,
 			getVolume: getVolume,
 			getMute: getMute,
 			getState: getState,
-			seek: seek
+			seek: seek,
+			setVolume: setVolume
 		}
 	};
 

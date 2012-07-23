@@ -8,11 +8,9 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.CurrentVolume = function(actionElement, videoElement, options)
+	Mediaplayer.CurrentVolume = function(actionElement, videoElement, options, playerInstance)
 	{
-		var playerInstance = Mediaplayer.getInstance(videoElement, 'Mediaplayer.Player'),
-
-		init = function()
+		var init = function()
 		{
 			actionElement.text(playerInstance.getVolume() + '%');
 			

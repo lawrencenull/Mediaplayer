@@ -14,6 +14,7 @@
 			controlbarArea  = playerWrapper.find('.mediaplayer-controls'),
 			dataActions 	= controlbarArea.find('[data-action]'),
 			dataShows 		= controlbarArea.find('[data-show]'),
+			playerInstance  = Mediaplayer.getInstance(element, 'Mediaplayer.Player'), 
 
 		init = function() 
 		{
@@ -29,7 +30,7 @@
 
 				if(typeof Mediaplayer[action] === 'function')
 				{
-					$.data(element[0], 'Mediaplayer.' + action, new Mediaplayer[action]($(this), element, options));
+					$.data(element[0], 'Mediaplayer.' + action, new Mediaplayer[action]($(this), element, options, playerInstance));
 				}				
 			});
 		};

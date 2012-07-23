@@ -8,11 +8,9 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.TogglePlay = function(actionElement, videoElement, options)
+	Mediaplayer.TogglePlay = function(actionElement, videoElement, options, playerInstance)
 	{
-		var playerInstance = Mediaplayer.getInstance(videoElement, 'Mediaplayer.Player'),
-
-		init = function() 
+		var init = function() 
 		{
 			actionElement.on('click', onClick);
 			videoElement.on('Mediaplayer.play', setPlaying);
@@ -21,8 +19,8 @@
 
 		onClick = function(e)
 		{
-			videoElement.trigger('Mediaplayer.togglePlay');
-			
+			playerInstance.togglePlay();
+
 			if(playerInstance.getState() === 'PLAYING')
 			{
 				setPlaying();			

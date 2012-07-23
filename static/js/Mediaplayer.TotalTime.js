@@ -8,7 +8,7 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.TotalTime = function(actionElement, videoElement, options)
+	Mediaplayer.TotalTime = function(actionElement, videoElement, options, playerInstance)
 	{
 		var duration,
 
