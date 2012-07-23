@@ -1,0 +1,29 @@
+{
+  "name": "Mediaplayer",
+  "title": "Mediaplayer",
+  "description": "A uniform controller for different media player implementations",
+  "version": "0.1",
+  "homepage": "http://mediaplayer.timbenniks.nl",
+  "author": {
+    "name": "Tim Benniks",
+    "email": "tbenniks@gmail.com",
+    "url": "http://www.timbenniks.nl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timbenniks/Mediaplayer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/timbenniks/Mediaplayer/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://Mediaplayer.timbenniks.nl/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">= 1.6"
+  },
+  "keywords": []
+}

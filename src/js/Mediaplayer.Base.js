@@ -10,12 +10,7 @@
 {
 	Mediaplayer.Base = function(element, options)
 	{
-		var defaults = 
-			{
-				controlbar: {'position': 'none'},
-				flashplayer: '/static/flash/player.swf' 
-			},
-			
+		var defaults = { autostart: 'false' },
 			options = $.extend(true, defaults, options),
 		
 		init = function() 

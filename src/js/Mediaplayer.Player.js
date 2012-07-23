@@ -31,12 +31,12 @@
 			playerOpts.width = element.outerWidth();
 			playerOpts.height = element.outerHeight();
 			playerOpts.levels = levels;
-			playerOpts.controlbar = options.controlbar;
+			playerOpts.controlbar = {'position': 'none'};
 			
 			playerOpts.modes = 
 			[
 				{type: 'html5'},
-				{type: 'flash', src: options.flashplayer}
+				{type: 'flash', src: '/src/flash/player.swf'}
 			];
 
 			playerOpts.events = 
