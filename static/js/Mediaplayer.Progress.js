@@ -18,16 +18,6 @@
 			
 			bindPlayerTimeListener();
 
-			actionElement.on('slideStart', function()
-			{
-				unbindPlayerSlideListener();
-			});
-
-			actionElement.on('slideEnd', function(e)
-			{
-				bindPlayerTimeListener();
-			});
-
 			actionElement.on('slide', function(e)
 			{
 				playerInstance.seek(duration * e.position);
@@ -48,11 +38,6 @@
 					playerInstance.seek(duration * e.position);
 				});
 			});
-		},
-
-		unbindPlayerSlideListener = function()
-		{
-			videoElement.off('Mediaplayer.time');
 		};
 
 		init();
