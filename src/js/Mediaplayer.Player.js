@@ -8,110 +8,47 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.Player = function(element, options)
+	Mediaplayer.Player = 
 	{
-		var playerOpts = {},
-			player = element[0],
-
-		init = function() 
-		{
-			createPlayerOptions();
-			setUpPlayer();
-		},
-		
-		createPlayerOptions = function()
-		{
-			var levels = [];
-			
-			element.find('source').each(function()
-			{
-				levels.push({'file': $(this).attr('src')});
-			});
-			
-			playerOpts.width = element.outerWidth();
-			playerOpts.height = element.outerHeight();
-			playerOpts.levels = levels;
-			playerOpts.controlbar = {'position': 'none'};
-			
-			playerOpts.modes = 
-			[
-				{type: 'html5'},
-				{type: 'flash', src: '/src/flash/player.swf'}
-			];
-
-			playerOpts.events = 
-			{
-				onReady: function() { element.trigger('Mediaplayer.ready'); },
-				onError: function(data) { element.trigger({type: 'Mediaplayer.error', message: data.message}); },
-				onMute: function(data) { element.trigger({type: 'Mediaplayer.mute', mute: data.mute}); },
-				onPlay: function(data) { element.trigger({type: 'Mediaplayer.play', oldstate: data.oldstate}) },
-				onPause: function(data) { element.trigger({type: 'Mediaplayer.pause', oldstate: data.oldstate}) },
-				onBuffer: function(data) { element.trigger({type: 'Mediaplayer.buffer', oldstate: data.oldstate}) },
-				onSeek: function(position, offset){ element.trigger({type: 'Mediaplayer.seek', position: position, offset: offset }) },
-				onIdle: function(oldstate) { element.trigger({type: 'Mediaplayer.idle', oldstate: oldstate}) },
-				onComplete: function(){ element.trigger('Mediaplayer.complete'); },
-				onTime: function(data) { element.trigger({type: 'Mediaplayer.time', duration: data.duration, position: data.position}); },
-				onVolume: function(data) { element.trigger({type: 'Mediaplayer.volume', volume: data.volume}) }
-			}
-		},
-		
-		setUpPlayer = function()
-		{
-			jwplayer(element[0]).setup(playerOpts);
-		},
-
 		togglePlay = function()
 		{
-			jwplayer(player).play();
+			Throw('The togglePlay() function is mandatory');
 		},
 
 		seek = function(seconds)
 		{
-			jwplayer(player).seek(seconds);
+			Throw('The seek() function is mandatory');
 		},
 
 		toggleMute = function()
 		{
-			jwplayer(player).setMute();
+			Throw('The toggleMute() function is mandatory');
 		},
 
 		getDuration = function()
 		{
-			return jwplayer(player).getDuration();
+			Throw('The getDuration() function is mandatory');
 		},
 
 		getVolume = function()
 		{
-			return jwplayer(player).getVolume();
+			Throw('The getVolume() function is mandatory');
 		},
 
 		setVolume = function(volume)
 		{
-			jwplayer(player).setVolume(volume);
+			Throw('The setVolume() function is mandatory');
 		},
 		
 		getMute = function()
 		{
-			return jwplayer(player).getMute();			
+			Throw('The getMute() function is mandatory');
 		},
 		
 		getState = function()
 		{
-			return jwplayer(player).getState();
+			Throw('The getState() function is mandatory');
 		};
-
-		init();
-
-		return {
-			getDuration: getDuration,
-			toggleMute: toggleMute,
-			togglePlay: togglePlay,
-			getVolume: getVolume,
-			getMute: getMute,
-			getState: getState,
-			seek: seek,
-			setVolume: setVolume
-		}
 	};
 
 })(jQuery, window.Mediaplayer = window.Mediaplayer || {});
