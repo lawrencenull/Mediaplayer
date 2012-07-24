@@ -47,9 +47,10 @@
 				onPlay: function(data) { element.trigger({type: 'Mediaplayer.play', oldstate: data.oldstate}) },
 				onPause: function(data) { element.trigger({type: 'Mediaplayer.pause', oldstate: data.oldstate}) },
 				onBuffer: function(data) { element.trigger({type: 'Mediaplayer.buffer', oldstate: data.oldstate}) },
+				onBufferChange: function(data) { element.trigger({type: 'Mediaplayer.bufferChange', bufferPercent: data.bufferPercent}) },
 				onSeek: function(position, offset){ element.trigger({type: 'Mediaplayer.seek', position: position, offset: offset }) },
 				onIdle: function(oldstate) { element.trigger({type: 'Mediaplayer.idle', oldstate: oldstate}) },
-				onComplete: function(){ element.trigger('Mediaplayer.complete'); },
+				onComplete: function() { element.trigger('Mediaplayer.complete'); },
 				onTime: function(data) { element.trigger({type: 'Mediaplayer.time', duration: data.duration, position: data.position}); },
 				onVolume: function(data) { element.trigger({type: 'Mediaplayer.volume', volume: data.volume}) }
 			}
@@ -94,6 +95,11 @@
 		{
 			return jwplayer(player).getMute();			
 		},
+
+		setFullscreen = function()
+		{
+			jwplayer(player).setFullscreen(true);
+		},
 		
 		getState = function()
 		{
@@ -110,7 +116,8 @@
 			getMute: getMute,
 			getState: getState,
 			seek: seek,
-			setVolume: setVolume
+			setVolume: setVolume,
+			setFullscreen: setFullscreen
 		}
 	};
 

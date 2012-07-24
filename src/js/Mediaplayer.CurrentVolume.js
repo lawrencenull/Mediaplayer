@@ -16,7 +16,7 @@
 			
 			videoElement.on('Mediaplayer.volume', function(e)
 			{
-				actionElement.text(e.volume + '%');
+				actionElement.text('Volume: ' + e.volume + '%');
 			});
 		};
 

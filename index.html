@@ -65,7 +65,7 @@
 <body>
  
 <div class="mediaplayer-wrapper">
-	<video controls="controls" id="mediaplayer" poster="http://video.timbenniks.nl/lib/images/dartmoor.jpg" data-options='{}'>
+	<video controls id="mediaplayer" poster="http://video.timbenniks.nl/lib/images/dartmoor.jpg" data-options='{}'>
 		<source src="http://video2.timbenniks.nl/movies/dartmoor.mp4" type="video/mp4" />
 		<source src="http://video2.timbenniks.nl/movies/dartmoor.ogv" type="video/ogg" />
 	</video>
@@ -86,7 +86,7 @@
 		<input type="range" data-show="Progress" name="progress" class="progress-scrubber" />
 		<input type="range" data-show="Volume" name="volume" class="volume-scrubber" />
 		<span data-show="CurrentVolume">0%</span>
-
+		<span data-show="Loading">0%</span>
 	</div>
 </div>
 
@@ -107,7 +107,7 @@
 <script src="./src/js/Mediaplayer.Progress.js"></script>
 <script src="./src/js/Mediaplayer.Volume.js"></script>
 <script src="./src/js/Mediaplayer.Fullscreen.js"></script>
-
+<script src="./src/js/Mediaplayer.Loading.js"></script>
 
 <script>
 	$(function()

@@ -8,9 +8,9 @@
 
 (function($, Mediaplayer)
 {
-	Mediaplayer.Player = 
+	Mediaplayer.Player = function()
 	{
-		togglePlay = function()
+		var togglePlay = function()
 		{
 			Throw('The togglePlay() function is mandatory');
 		},
@@ -49,6 +49,18 @@
 		{
 			Throw('The getState() function is mandatory');
 		};
+
+		return {
+			getDuration: getDuration,
+			toggleMute: toggleMute,
+			togglePlay: togglePlay,
+			getVolume: getVolume,
+			getMute: getMute,
+			getState: getState,
+			seek: seek,
+			setVolume: setVolume,
+			setFullscreen: setFullscreen
+		}
 	};
 
 })(jQuery, window.Mediaplayer = window.Mediaplayer || {});

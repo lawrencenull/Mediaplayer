@@ -3,10 +3,10 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    pkg: '<json:Mediaplayer.jquery.json>',
+    pkg: '<json:package.json>',
     meta: {
       banner: 
-        '/*!\n' +
+    '/*!\n'+
 		'*	@Class: <%= pkg.title || pkg.name %>\n'+
 		'*	@Version: <%= pkg.version %>\n'+
 		'*	@Created on: <%= grunt.template.today("yyyy-mm-dd") %>\n'+
@@ -35,7 +35,6 @@ module.exports = function(grunt) {
         	'src/js/Mediaplayer.Volume.js',
         	'src/js/Mediaplayer.Fullscreen.js'
         ],
-        //src: ['<banner:meta.banner>', '<file_strip_banner:src/<%= pkg.name %>.js>'],
         dest: 'dist/<%= pkg.name %>.<%= pkg.version %>.js'
       }
     },
