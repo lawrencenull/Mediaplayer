@@ -1,6 +1,6 @@
 /* 
 *	@Class:			Mediaplayer.Player
-*	@Description:	This file embeds and initializes jwplayer. It also listenes to any events from teh controlbar
+*	@Description:	This file embeds and initializes jwplayer. It also listenes to any events from the controlbar
 *	@Author:		Tim Benniks <tim.benniks@akqa.com>
 *	@Dependencies:	jQuery, Mediaplayer
 ---------------------------------------------------------------------------- */
