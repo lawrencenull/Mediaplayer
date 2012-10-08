@@ -1,30 +1,23 @@
 Mediaplayer
 ============
 
-What, another one?
-------------------
-
-At my current job we have to deal with different ways of implementing media content almost every project.
-Most player interfaces have the same elements but are skinned differenlt everytime.
-Next to the unique themes the implementation is often unique as well. 
-The content could come from youtube, a video hosting service like brightcove or we host it ourselves.
-
 We needed a uniform controller for different video player implementations.
 This Mediaplayer is basically a shell around any videoplayer implementation.
 It acts as a front-end to jwplayer or mediaelement.js for example.
 It provides a simple API across different video player implementations.
 
+At this moment only jwplayer has been implemented.
+
 TODO
 ----
 
 * General options handler
-* Controlbar styling
 * Audio
 * LiveStream
 * Playlists
 * Subtitles
 
-Implementation
+How to embed
 --------------
 
 The mediaplayer-wrapper <div> is the basic embed you need to get going. The <noscript> is optional.
