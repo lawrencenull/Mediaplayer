@@ -3,11 +3,11 @@
 /*global notDeepEqual:false, strictEqual:false, notStrictEqual:false, raises:false*/
 (function($)
 {
-	module('fancySlider');
+	module('No tests yet');
 
-	test('fancy?', 1, function()
+	test('Tests?', 1, function()
 	{
-		ok(true, 'fancySlider is very fancy indeed');
+		ok(true, 'Indeed, we need some tests here...');
 	});
 
 }(jQuery));
